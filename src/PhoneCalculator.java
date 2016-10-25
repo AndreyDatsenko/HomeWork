@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class PhoneCalculator {
 
     public static void main(String[] arg) {
-        Pattern pattern1 = Pattern.compile("^(067|097|086|096|073|066|093|063|095)[0-9]{7}");
+        Pattern pattern1 = Pattern.compile("^(067|097|086|096|073|066|093|063|095|066)[0-9]{7}");
         Pattern pattern2 = Pattern.compile("^\\+38(067|097|086|096|073|066|093|063|095)[0-9]{7}");
         Pattern pattern3 = Pattern.compile("^0038(067|097|086|096|073|066|093|063|095)[0-9]{7}");
         System.out.println("Please enter the phone number:");
@@ -37,30 +37,27 @@ public class PhoneCalculator {
         }
         System.out.println(count + " round of calculation is: " + sum);
 
-        if(sum<10){
-        switch (sum) {
-            case 1:
-                System.out.println("Final result is: one");
-                break;
-            case 2:
-                System.out.println("Final result is: two");
-                break;
-            case 3:
-                System.out.println("Final result is: three");
-                break;
-            case 4:
-                System.out.println("Final result is: four");
-                break;
-            default:
-                System.out.println("Final result is: " + sum);
+        if (sum < 10) {
+            switch (sum) {
+                case 1:
+                    System.out.println("Final result is: one");
+                    break;
+                case 2:
+                    System.out.println("Final result is: two");
+                    break;
+                case 3:
+                    System.out.println("Final result is: three");
+                    break;
+                case 4:
+                    System.out.println("Final result is: four");
+                    break;
+                default:
+                    System.out.println("Final result is: " + sum);
             }
         }
 
         return sum;
     }
-
-
-
 
 
 }
