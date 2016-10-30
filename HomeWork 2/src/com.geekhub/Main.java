@@ -30,6 +30,17 @@ public class Main {
                         System.out.println(String.format("area = %1$,.2f", shape.calculateArea()));
                         System.out.println(String.format("perimeter = %1$,.2f", shape.calculatePerimeter()));
                     }
+
+                    if (shapeString.equalsIgnoreCase("square")) {
+                        Square square = new Square(params);
+                        System.out.println(String.format("area triangle = %1$,.2f", square.triangleArea()));
+                        System.out.println(String.format("perimeter triangle = %1$,.2f", square.trianglePerimeter()));
+                    } else if (shapeString.equalsIgnoreCase("rectangle")) {
+                        Rectangle rectangle = new Rectangle(params);
+                        System.out.println(String.format("area triangle = %1$,.2f", rectangle.triangleArea()));
+                        System.out.println(String.format("perimeter triangle = %1$,.2f",
+                                rectangle.trianglePerimeter()));
+                    }
                 }
             }
         }

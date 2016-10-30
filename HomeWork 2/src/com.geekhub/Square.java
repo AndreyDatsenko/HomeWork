@@ -1,19 +1,30 @@
 package com.geekhub;
 
+import static java.lang.Math.sqrt;
+
 public class Square implements Shape {
-    private double a;
+    private double side_a;
 
     public Square(double[] params) {
-        this.a = params[0];
+        this.side_a = params[0];
     }
+
 
     @Override
     public double calculateArea() {
-        return a * a;
+        return side_a * side_a;
     }
 
     @Override
     public double calculatePerimeter() {
-        return a * 4;
+        return side_a * 4;
+    }
+
+    public double triangleArea() {
+        return (side_a * 4) / 2;
+    }
+
+    public double trianglePerimeter() {
+        return (sqrt(2) * side_a) + (side_a * 2);
     }
 }
