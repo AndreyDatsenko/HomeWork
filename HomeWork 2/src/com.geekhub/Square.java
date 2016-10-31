@@ -3,28 +3,27 @@ package com.geekhub;
 import static java.lang.Math.sqrt;
 
 public class Square implements Shape {
-    private double side_a;
+    private double sideA;
 
-    public Square(double[] params) {
-        this.side_a = params[0];
+    public Square(double sideA) {
+        this.sideA = sideA;
     }
-
 
     @Override
     public double calculateArea() {
-        return side_a * side_a;
+        return sideA * sideA;
     }
 
     @Override
     public double calculatePerimeter() {
-        return side_a * 4;
+        return sideA * 4;
     }
 
     public double triangleArea() {
-        return (side_a * 4) / 2;
+        return (sideA * 4) / 2;
     }
 
     public double trianglePerimeter() {
-        return (sqrt(2) * side_a) + (side_a * 2);
+        return (sqrt(2) * sideA) + (sideA * 2);
     }
 }

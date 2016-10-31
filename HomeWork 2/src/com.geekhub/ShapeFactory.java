@@ -8,13 +8,13 @@ public class ShapeFactory {
         }
 
         if (shapeType.equalsIgnoreCase("CIRCLE")) {
-            return new Circle(params);
+            return new Circle(params[0]);
         } else if (shapeType.equalsIgnoreCase("RECTANGLE")) {
-            return new Rectangle(params);
+            return new Rectangle(params[0], params[1]);
         } else if (shapeType.equalsIgnoreCase("SQUARE")) {
-            return new Square(params);
+            return new Square(params[0]);
         }else if (shapeType.equalsIgnoreCase("TRIANGLE")) {
-            return new Triangle(params);
+            return new Triangle(params[0], params[1], params[2]);
         }
 
         return null;

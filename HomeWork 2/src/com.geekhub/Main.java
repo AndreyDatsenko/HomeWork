@@ -32,11 +32,11 @@ public class Main {
                     }
 
                     if (shapeString.equalsIgnoreCase("square")) {
-                        Square square = new Square(params);
+                        Square square = new Square(params[0]);
                         System.out.println(String.format("area triangle = %1$,.2f", square.triangleArea()));
                         System.out.println(String.format("perimeter triangle = %1$,.2f", square.trianglePerimeter()));
                     } else if (shapeString.equalsIgnoreCase("rectangle")) {
-                        Rectangle rectangle = new Rectangle(params);
+                        Rectangle rectangle = new Rectangle(params[0], params[1]);
                         System.out.println(String.format("area triangle = %1$,.2f", rectangle.triangleArea()));
                         System.out.println(String.format("perimeter triangle = %1$,.2f",
                                 rectangle.trianglePerimeter()));

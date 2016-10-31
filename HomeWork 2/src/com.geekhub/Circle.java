@@ -7,8 +7,8 @@ public class Circle implements Shape {
 
     private double radius;
 
-    public Circle(double[] params) {
-        this.radius = params[0];
+    public Circle(double radius) {
+        this.radius = radius;
     }
 
     @Override

@@ -4,30 +4,30 @@ import static java.lang.Math.sqrt;
 
 public class Rectangle implements Shape {
 
-    private double side_a;
-    private double side_b;
+    private double sideA;
+    private double sideB;
 
-    public Rectangle(double[] params) {
-        this.side_a = params[0];
-        this.side_b = params[1];
+    public Rectangle(double sideA, double sideB) {
+        this.sideA = sideA;
+        this.sideB = sideB;
     }
 
     @Override
     public double calculateArea() {
-        return side_a * side_b;
+        return sideA * sideB;
     }
 
     @Override
     public double calculatePerimeter() {
-        return 2 * (side_a + side_b);
+        return 2 * (sideA + sideB);
     }
 
     public double triangleArea() {
-        return (side_a * side_b) / 2;
+        return (sideA * sideB) / 2;
     }
 
     public double trianglePerimeter() {
-        double diagonal = sqrt(Math.pow(side_a, 2) + Math.pow(side_b, 2));
-        return diagonal + side_a + side_b;
+        double diagonal = sqrt(Math.pow(sideA, 2) + Math.pow(sideB, 2));
+        return diagonal + sideA + sideB;
     }
 }

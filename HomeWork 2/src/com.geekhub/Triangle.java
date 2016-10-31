@@ -4,25 +4,25 @@ import static java.lang.Math.sqrt;
 
 public class Triangle implements Shape {
 
-    private double side_a;
-    private double side_b;
-    private double side_c;
+    private double sideA;
+    private double sideB;
+    private double sideC;
 
-    public Triangle(double[] params) {
-        this.side_a = params[0];
-        this.side_b = params[1];
-        this.side_c = params[2];
+    public Triangle(double sideA, double sideB, double sideC) {
+        this.sideA = sideA;
+        this.sideB = sideB;
+        this.sideC = sideC;
     }
 
     @Override
     public double calculateArea() {
-        double halfPerimeter = (side_a + side_b + side_c) / 2;
+        double halfPerimeter = (sideA + sideB + sideC) / 2;
 
-        return sqrt(halfPerimeter * (halfPerimeter - side_a) * (halfPerimeter - side_b) * (halfPerimeter - side_c));
+        return sqrt(halfPerimeter * (halfPerimeter - sideA) * (halfPerimeter - sideB) * (halfPerimeter - sideC));
     }
 
     @Override
     public double calculatePerimeter() {
-        return side_a + side_b + side_c;
+        return sideA + sideB + sideC;
     }
 }
