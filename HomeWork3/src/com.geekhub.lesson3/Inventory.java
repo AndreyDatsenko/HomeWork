@@ -14,9 +14,9 @@ public class Inventory {
 
         if (null == products) {
             products = new ArrayList<>();
+            this.products.put(type, products);
         }
         products.add(product);
-        this.products.put(type, products);
     }
 
     public double inventoryType(ProductType type) {
