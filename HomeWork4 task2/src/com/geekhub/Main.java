@@ -29,17 +29,20 @@ public class Main {
                 }
             }
         }
-        words.forEach(word -> {
-            if (word.length() < 10) System.out.println(word);
-            else reductionWord(word);
-        });
-
+        words.forEach(word -> System.out.println(reductionWord(word)));
     }
 
-    private static void reductionWord(String word) {
-        char[] letterArray = word.toCharArray();
-        char first = letterArray[0];
-        char last = letterArray[letterArray.length - 1];
-        System.out.println(first + "" + (letterArray.length - 2) + "" + last);
+    private static String reductionWord(String word) {
+        String editWord;
+        int MAX_COUNT_LENGTH = 10;
+        if (word.length() < MAX_COUNT_LENGTH) {
+            editWord = word;
+        } else {
+            char first = word.charAt(0);
+            int large = word.length() - 1;
+            char last = word.charAt(large);
+            editWord = first + "" + (large - 1) + "" + last;
+        }
+        return editWord;
     }
 }

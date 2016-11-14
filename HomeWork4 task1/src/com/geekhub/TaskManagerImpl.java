@@ -4,9 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
-import static java.util.Arrays.asList;
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
+import static java.util.Arrays.stream;
+import static java.util.stream.Collectors.*;
 
 public class TaskManagerImpl implements TaskManager {
 
@@ -39,26 +38,15 @@ public class TaskManagerImpl implements TaskManager {
 
     @Override
     public Map<String, List<Task>> getTasksByCategories(String... categories) {
-        Map<String, List<Task>> result = new HashMap<>();
-        Collection<List<Task>> values = tasks.values();
-        for (List<Task> listTask : values) {
-            for (Task task : listTask) {
-                List<Task> tasks = result.get(task.getCategory());
-                if (tasks == null) {
-                    tasks = new ArrayList<>();
-                }
-                if (asList(categories).contains(task.getCategory())) {
-                    tasks.add(task);
-                    result.put(task.getCategory(), tasks);
-                }
-            }
-        }
-        return result;
+        return stream(categories)
+                .collect(toMap(c -> c, this::getTasksByCategory));
     }
 
     @Override
     public List<Task> getTasksByCategory(String category) {
-        return tasks.values().stream()
+        return tasks.keySet().stream()
+                .sorted()
+                .map(a -> tasks.get(a))
                 .flatMap(List::stream)
                 .filter(p -> p.getCategory().equals(category))
                 .collect(toList());
@@ -67,6 +55,7 @@ public class TaskManagerImpl implements TaskManager {
     @Override
     public List<Task> getTasksForToday() {
         return tasks.keySet().stream()
+                .sorted()
                 .filter(p -> p.toLocalDate().equals(LocalDate.now()))
                 .map(p -> tasks.get(p))
                 .flatMap(List::stream)
